@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2> Welcome, {{user}}</h2>
+
+<div class="card">
+    <h3>Resume Analyzer</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="resyme" placeholder="paste your resume"></textarea>
+        <p>OR Upload File : </p>
+        <input type="file" name="file" accept=".pdf, .doc, .docx">
+        <input name="role" placeholder="WHat do you want to become ? Job description(e.g Data Science)" required>
+        <button type="submit">Analyze my resume</button>
+
+
+    </form>
+
+</div>
+
+{% if result %}
+<div class="red">
+    {% if result.error %}
+    <p style="color: red;">Error : {{result.error}}</p>
+    {% endif %}
+
+    <h2>Match Score: {{ result.overall_match }}</h2>
+    <p><strong>Summary:</strong> {{ result.summary }}</p>
+
+    <hr>
+
+    <h3>Skills</h3>
+    <ul>
+        {% for s in result.get("key_strengths",[])%}
+        <li>{{s}}</li>
+        {% endfor %}
+
+    </ul>
+
+    <h3>Missing Skills</h3>
+    <ul>
+        {% for s in result.get("missing_goals",[])%}
+        <li>{{s}}</li>
+        {% endfor %}
+
+    </ul>
+
+  <h3>Suggested Changes</h3>
+    <ul>
+        {% for change in result.get("suggested_changes", []) %}
+        <li>{{ change }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Roadmap for {{role}}</h3>
+    <ul>
+        {% for s in result.get("roadmap",[])%}
+        <li>{{s}}</li>
+        {% endfor %}
+
+    </ul>
+
+    <h3>Interview Questions</h3>
+    <ul>
+        {% for s in result.get("interview_questions",[])%}
+        <li>{{s}}</li>
+        {% endfor %}
+
+    </ul>
+
+
+
+
+</div>
+{% endif %}
+{% endblock %}
