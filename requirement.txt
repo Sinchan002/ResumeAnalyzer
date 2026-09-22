@@ -4,7 +4,7 @@ pymysql
 openai
 PyPDF2
 python-docx
-
 google-genai 
 python-dotenv
-flask-cors
+flask-cors
+gunicorn

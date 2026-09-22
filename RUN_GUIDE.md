@@ -41,29 +41,3 @@ npm run dev
 
 Code Push Guide 
 
-# 1. Initialize Git in your project folder (skip if already initialized)
-git init
-
-# 2. Add all files to staging
-git add .
-
-# 3. Commit your files
-git commit -m "Initial commit: Resume Analyzer full-stack app"
-
-# 4. Rename main branch to 'main'
-git branch -M main
-
-# 5. Link your local project to your GitHub repository 
-# (Replace with your actual GitHub URL from Step 2)
-git remote add origin https://github.com/YOUR_USERNAME/resume-analyzer.git
-
-# 6. Push your code to GitHub
-git push -u origin main
-
-
-For Future Updates
-Whenever you make new changes in the future and want to update GitHub, just run:
-
-git add .
-git commit -m "Describe your changes here"
-git push
