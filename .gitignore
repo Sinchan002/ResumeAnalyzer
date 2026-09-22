@@ -1,2 +1,6 @@
 .env
 otp_implementation.md
+venv/
+__pycache__/
+Frontend/node_modules/
+Frontend/dist/

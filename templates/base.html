@@ -4,7 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Counsellor</title>
+    
+    <!-- Primary SEO Metadata -->
+    <title>{% block title %}AI Career Counsellor | Smart Resume Analysis &amp; ATS Match{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Optimize your resume for any job role with AI-powered resume scoring, ATS gap analysis, personalized skill roadmaps, and custom interview prep questions.{% endblock %}">
+    <meta name="keywords" content="Resume Analyzer, AI Resume Checker, ATS Resume Optimizer, Career Counselor, Resume Match Score, Job Search Tool, Career Roadmap, Interview Questions Generator">
+    <meta name="author" content="Cygnatrix">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#4f46e5">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="AI Career Counsellor | Smart Resume Analysis">
+    <meta property="og:description" content="Upload your resume and get immediate AI feedback, ATS match score, missing skills analysis, and tailored career preparation roadmaps.">
+    <meta property="og:site_name" content="Career AI">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.url }}">
+    <meta name="twitter:title" content="AI Career Counsellor | Smart Resume Analysis">
+    <meta name="twitter:description" content="Instant ATS resume match scoring, career roadmap, and interview prep powered by AI.">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Career Counsellor & Resume Analyzer",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "description": "AI-powered resume analysis, instant ATS scoring, personalized career roadmaps, missing skills identification, and targeted interview preparation.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Design System CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>

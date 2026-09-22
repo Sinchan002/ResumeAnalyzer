@@ -1,0 +1,10 @@
+{
+  "description": "Analyze resumes with AI to identify strengths, skill gaps, and improvements, helping job seekers tailor applications and prepare for interviews effectively.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

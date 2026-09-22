@@ -1,6 +1,7 @@
-from weakref import KeyedRef
-from sqlalchemy import Column, Integer, String, Text, ForeignKey
+
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime
 from db import Base, engine
+from datetime import datetime
 
 class User(Base):
     __tablename__ = "users"
@@ -15,7 +16,9 @@ class Reports(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     resume_text = Column(Text)
+    job_description = Column(Text, nullable=True)
     result = Column(Text)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 if __name__ == "__main__":
     print("Creating tables in database...")

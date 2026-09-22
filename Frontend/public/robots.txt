@@ -1,0 +1,9 @@
+# User-agent directive for search engines
+User-agent: *
+Allow: /
+
+# Disallow indexing private API calls
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://resume-analyzer.cygnatrix.com/sitemap.xml
