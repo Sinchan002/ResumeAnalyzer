@@ -1,4 +1,4 @@
-# pyrefly: ignore [missing-import]
+import os
 from flask import Flask, request, session, jsonify, send_from_directory
 from flask_cors import CORS
 from db import engine, Base, SessionLocal
@@ -11,7 +11,7 @@ import time
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = "MyKey"
+app.secret_key = os.getenv("SECRET_KEY", "MyKey")
 
 # Global JSON error handlers to prevent HTML error pages
 @app.errorhandler(500)
@@ -23,7 +23,19 @@ def handle_404(e):
     return jsonify({"error": "API route not found (404)"}), 404
 
 # Enable CORS for React frontend
-CORS(app, supports_credentials=True, origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5174", "http://127.0.0.1:5174"])
+allowed_origins = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173", 
+    "http://localhost:3000", 
+    "http://127.0.0.1:3000", 
+    "http://localhost:5174", 
+    "http://127.0.0.1:5174"
+]
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    allowed_origins.append(frontend_url.rstrip("/"))
+
+CORS(app, supports_credentials=True, origins=allowed_origins)
 
 Base.metadata.create_all(bind=engine)
 
